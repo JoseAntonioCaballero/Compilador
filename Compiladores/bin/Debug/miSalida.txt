@@ -1,0 +1,48 @@
+TokComentario largo
+#(TokID,include)(TokenID,include) TokMenor
+(TokID,conio)(TokenID,conio).(TokID,h)(TokenID,h)TokMayor
+
+#(TokID,include)(TokenID,include) TokMenor
+(TokID,stdio)(TokenID,stdio).(TokID,h)(TokenID,h)TokMayor
+
+
+TokComentario largo
+(TokPR,int)(TokenID,int) (TokID,main)(TokenID,main)TokPI
+)
+{
+    (TokPR,int)(TokenID,int) (TokID,n1)(TokenID,n1), (TokID,n2)(TokenID,n2), (TokID,producto)(TokenID,producto), (TokID,suma)(TokenID,suma)TokPyK
+
+
+    (TokID,printf)(TokenID,printf)TokPI
+ "\(TokID,n)(TokenID,n)   (TokID,Introduzca)(TokenID,Introduzca) (TokID,primer)(TokenID,primer) (TokID,numero)(TokenID,numero) TokPI
+(TokID,entero)(TokenID,entero)): " )TokPyK
+
+    (TokID,scanf)(TokenID,scanf)TokPI
+ "%(TokID,d)(TokenID,d)", &(TokID,n1)(TokenID,n1) )TokPyK
+
+    (TokID,printf)(TokenID,printf)TokPI
+ "\(TokID,n)(TokenID,n)   (TokID,Introduzca)(TokenID,Introduzca) (TokID,segundo)(TokenID,segundo) (TokID,numero)(TokenID,numero) TokPI
+(TokID,entero)(TokenID,entero)): " )TokPyK
+
+    (TokID,scanf)(TokenID,scanf)TokPI
+ "%(TokID,d)(TokenID,d)", &(TokID,n2)(TokenID,n2) )TokPyK
+
+
+    (TokID,suma)(TokenID,suma) = (TokID,n1)(TokenID,n1) + (TokID,n2)(TokenID,n2)TokPyK
+
+    (TokID,producto)(TokenID,producto) = (TokID,n1)(TokenID,n1) * (TokID,n2)(TokenID,n2)TokPyK
+
+
+    (TokID,printf)(TokenID,printf)TokPI
+ "\(TokID,n)(TokenID,n)   (TokID,La)(TokenID,La) (TokID,suma)(TokenID,suma) (TokID,es)(TokenID,es): %(TokID,d)(TokenID,d)", (TokID,suma)(TokenID,suma) )TokPyK
+
+    (TokID,printf)(TokenID,printf)TokPI
+ "\(TokID,n)(TokenID,n)\(TokID,n)(TokenID,n)   (TokID,La)(TokenID,La) (TokID,multiplicaci)(TokenID,multiplicaci)%(TokID,cn)(TokenID,cn) (TokID,es)(TokenID,es): %(TokID,d)(TokenID,d)", 162, (TokID,producto)(TokenID,producto) )TokPyK
+
+
+    (TokID,getch)(TokenID,getch)TokPI
+)TokPyK
+ TokComentario largo
+    (TokPR,return)(TokenID,return) 0TokPyK
+
+}ÿ
