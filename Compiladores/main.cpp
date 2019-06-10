@@ -1,16 +1,76 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
-#include<list>
-#include<string.h>
-//ya estamos en Git
+#include <list>
+#include <string.h>
+#include <sstream>
+#include <vector>
+
 using namespace std;
+
+    class cToken{
+    protected:
+        string nomToken;
+        string lexema;
+
+    public:
+
+        void setNomToken(string nT){
+            this -> nomToken = nT;
+
+        }
+
+        void setLexema(string lex = "123.34"){
+            this ->lexema= lex;
+
+        }
+
+        string getNomToken(){
+            return this -> nomToken;
+
+        }
+
+        string getLexema(){
+            return this -> lexema;
+
+        }
+
+
+    };
+
+    template <class T>
+    class cTokenNum: public cToken{
+            T valorNum;
+
+        public:
+
+            void setValor(T vN){
+                this -> valorNum = vN;
+            }
+
+            T getValor(){
+                return this -> valorNum;
+
+            }
+
+            T ConvierteToNum(){
+                stringstream aux (this -> lexema);
+                aux>>valorNum;
+                return valorNum;
+            }
+
+
+    };
 
     class cAnalisisLexico{
         ifstream in;  //creación del fichero de lectura
         ofstream out; //creación de fichero de escritura
         ifstream palabrasReservadas;
         list<string> listaPalabras;
+        vector<cToken> bufferToken;
+
+        void (cAnalisisLexico::*fs[3])();
+
 
         char* archivoSalida;
 
@@ -21,7 +81,8 @@ public:
     cAnalisisLexico(char* s)
     {}
 
-    bool esReservada(char *id){
+
+     bool esReservada(char *id){
 
     bool reservada = false;
  for(list<string>::iterator it=listaPalabras.begin();it!=listaPalabras.end();it++){
@@ -42,14 +103,10 @@ public:
 
         if(in.fail())
             throw 1;
-        cout<<"Exito al abrir el archivo"<<s<<endl;
-        palabrasReservadas.open("PalabrasReservadas.txt");
-        if(palabrasReservadas.fail())
-            throw 2;
-        cout<<"Exito al abrir el archivo Palabras reservadas"<<endl;
+        cout<<"Exito al abrir el archivo"<<endl;
         string cad;
 
-        while(!palabrasReservadas.eof()){
+          while(!palabrasReservadas.eof()){
             palabrasReservadas>>cad;
             listaPalabras.push_back(cad);
 
@@ -60,6 +117,8 @@ public:
        }catch (int i){
         if(i==1)
             cout<<"error al abrir el archivo para analizar"<<endl;
+        else if(i==2)
+            cout<<"error al abrir el archivo de palabras reservadas"<<endl;
         else
             cout<<"error no definido"<<endl;
                   }
@@ -137,19 +196,84 @@ public:
 
                                     }
 
+                                    else if(c=='+' || c== '-' ||  isdigit(c)){
+                                        string num;
+                                        num=c;
+                                        c=in.get();
+                                        if(c=='+')
+                                            out<<"(TokIncre, ++)";
+                                        else if(c=='-')
+                                            out<<"(TokDecre, --)";
+                                        else if(c=='=')
+                                            out<<"(TokIncre, +=)";
+                                        else if (isalpha(c) && toupper(c)!='E')
+                                            out<<"(TokOpAtm,"<<c;
+                                        else{
+                                            while(isdigit(c)){
+                                                num+=c;
+                                                c=in.get();
+                                            }
 
+                                            if(c=='.'){
+                                                num+=c;
+                                                c=in.get();
+                                                 while(isdigit(c)){
+                                                num+=c;
+                                                c=in.get();
+                                            }
+
+                                            if(toupper(c)!='E')
+                                            out<<"TokFloat"<<num;
+                                            else{
+                                                parteFinalAutomata:
+                                                num+=c;
+                                                c=in.get();
+                                            if(c=='+' || c== '-' ||  isdigit(c)) {
+                                                num+=c;
+                                                c=in.get();
+                                                while(isdigit(c)){
+                                                    num+=c;
+                                                    c=in.get();
+                                               }
+
+                                               out<<"TokNumExp"<<num;
+
+                                            }
+                                            else
+                                                out<<"Error en el formaro exponencial";
+                                            }
+
+
+                                        }
+
+                                         else if(toupper(c)=='E')
+                                        goto parteFinalAutomata;
+
+                                        else
+                                        out<<"TokInt,"<<num<<endl;
+                                    in.unget();
+
+                                        }
+
+                                    }
 
 
                     else
                     out<<c;
 
-                        }
+
 
     }
 
     };
 
 
+    class cAnalisisSintactico{
+
+
+    };
+
+    };
     int main(int nArgs, char ** args)
 {
 

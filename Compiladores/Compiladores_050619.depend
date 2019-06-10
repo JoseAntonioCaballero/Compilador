@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1559791986 source:c:\users\laufer\desktop\compiladores_050619\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<list>
+	<string.h>
+	<sstream>
+	<vector>
+
