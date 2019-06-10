@@ -63,8 +63,8 @@ using namespace std;
     };
 
     class cAnalisisLexico{
-        ifstream in;  //creación del fichero de lectura
-        ofstream out; //creación de fichero de escritura
+        ifstream in;  //creaciÃ³n del fichero de lectura
+        ofstream out; //creaciÃ³n de fichero de escritura
         ifstream palabrasReservadas;
         list<string> listaPalabras;
         vector<cToken> bufferToken;
@@ -135,6 +135,9 @@ public:
             while(!in.eof()){
 
                 c=in.get();
+                    if (in.eof()||in.fail()){
+                        break;
+                    }
                     if(c=='(')
                         out<<"TokPI"<<endl;
                     else if(c==';')
@@ -158,7 +161,7 @@ public:
                             out<<"(TokID,"<<id<<")";
                         else
                              out<<"(TokPR,"<<id<<")";
-                    out<<"(TokenID,"<<id<<")";
+                    //out<<"(TokenID,"<<id<<")";
 
                         in.unget(); //Permite regresar algo que no es un digito o letra.
 
@@ -180,17 +183,16 @@ public:
                                             char d;
 
                                         do{
-                                            while(in.get()!='*')
+                                            while(in.get()!='*');
                                                 in.unget();
-											
-												while(in.get()=='*')
-													in.unget();
-												if((d=in.get())=='/'){
-													out<<"TokComentario largo";
-													in.unget();
-                                                    break;
+											while(in.get()=='*');
+												in.unget();
+											if((d=in.get())=='/'){
+											out<<"TokComentario largo";
+												in.unget();
+                                                   break;
 												}
-											
+
 
                                         }while(d!='/');
 
