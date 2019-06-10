@@ -97,7 +97,7 @@ public:
         return reservada;
     }
 
-    cAnalisisLexico(char*s, char*salida){
+    cAnalisisLexico(char*s, const char*salida){
         in.open(s);
     try{
 
@@ -180,15 +180,17 @@ public:
                                             char d;
 
                                         do{
-                                            while(in.get()!='*');
+                                            while(in.get()!='*')
                                                 in.unget();
-                                            while(in.get()=='*');
-                                                in.unget();
-                                                if((d=in.get())=='/'){
-                                            out<<"TokComentario largo";
-                                                in.unget();
+											
+												while(in.get()=='*')
+													in.unget();
+												if((d=in.get())=='/'){
+													out<<"TokComentario largo";
+													in.unget();
                                                     break;
-                                                }
+												}
+											
 
                                         }while(d!='/');
 
@@ -277,7 +279,7 @@ public:
     int main(int nArgs, char ** args)
 {
 
-    char * sal = "miSalida.txt";
+    const char * sal = "miSalida.txt";
 
     if(nArgs == 3)
         sal= args[2];
