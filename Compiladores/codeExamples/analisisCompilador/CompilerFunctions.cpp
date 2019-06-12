@@ -39,7 +39,7 @@ class AnalisisLexico{
 			}else{
 				cout<<"exito al abrir el archivo plabras reservadas"<<endl;
 				string cadena;
-				while(palabrasReservadas.eof()==false){
+				while(!palabrasReservadas.eof()){
 					palabrasReservadas>>cadena;
 					listaPalabras.push_back(cadena);
 				}
