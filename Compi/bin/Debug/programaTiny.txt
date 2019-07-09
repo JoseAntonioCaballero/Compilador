@@ -1,0 +1,2 @@
+mivariable:=mivariable2+mivariable3;
+mivariable2:=mivariable3+mivariable4

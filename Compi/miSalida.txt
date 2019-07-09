@@ -1,0 +1,5 @@
+(TokenID,mivariable)TokenAssignTiny(TokenID,mivariable2)(TokOpAt,m)(TokenID,ivariable3)TokenPyC
+(TokenID,mivariable2)TokenAssignTiny(TokenID,mivariabl)(TokNumExp,+e3)(TokOpAt,m)(TokenID,ivariable4)TokenPyC
+(TokenID,mivariable3)TokenAssignTiny(TokenID,mivariable)(TokInt,+3)TokenPyC
+(TokenID,holamundo)TokenPyC
+(TokenReser,read) (TokenID,p) TokenPyC (TokenReser,read) (TokenID,q) TokenPyC (TokenReser,if) (TokenID,p) (Token,=) (TokInt,9) (TokenReser,then) (TokenReser,write) (TokenID,p) TokenPyC (TokenReser,write

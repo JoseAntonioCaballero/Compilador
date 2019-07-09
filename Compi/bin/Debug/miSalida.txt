@@ -1,0 +1,2 @@
+(TokenID,mivariable)TokenAssignTiny(TokenID,mivariable2)(TokOpAt,m)(TokenID,ivariable3)TokenPyC
+(TokenID,mivariable2)TokenAssignTiny(TokenID,mivariable3)(TokOpAt,m)(TokenID,ivariable4)

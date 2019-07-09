@@ -1,0 +1,6 @@
+mivariable:=mivariable2+mivariable3;
+mivariable2:=mivariabl+e3+mivariable4;
+mivariable3:=mivariable+3;
+holamundo;
+read p ; read q ; if p = 9 then write p ; write q else p q end ; if p = 0 then repeat z := z * ( z + p ) until 1 end
+ 

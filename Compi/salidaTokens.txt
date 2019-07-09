@@ -1,0 +1,12 @@
+Exito al abrir el archivo
+Error al abrir el archivo de palabras Reservadas
+TokenID,mivariable
+TokenAssignTiny,:=
+TokenID,mivariable2
+TokenID,ivariable3
+TokenPyC,;
+TokenID,mivariable2
+TokenAssignTiny,:=
+TokenID,mivariable3
+TokenID,ivariable4
+Presione una tecla para continuar . . . 

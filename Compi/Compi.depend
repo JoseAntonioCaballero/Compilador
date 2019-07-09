@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1562334344 source:c:\users\alumno03\desktop\compi\main.cpp
+	<stdlib.h>
+	<cstring>
+	<iostream>
+	<fstream>
+	<vector>
+	<sstream>
+	<map>
+	"analizadorSintactico.h"
+	"cToken.h"
+
+1562335028 c:\users\alumno03\desktop\compi\analizadorsintactico.h
+	<vector>
+	"cToken.h"
+
+1562334928 c:\users\alumno03\desktop\compi\ctoken.h
+
